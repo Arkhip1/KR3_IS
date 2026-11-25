@@ -1,0 +1,130 @@
+QMainWindow, QDialog, QWidget#centralwidget {
+    background: #eaf5e8;
+    color: #17362a;
+    font-family: "Segoe UI";
+    font-size: 13px;
+}
+QWidget { color: #17362a; }
+QFrame#stationHeader {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #d6efd4, stop:1 #edf8e6);
+    border: 1px solid #bddcba;
+    border-radius: 26px;
+}
+QLabel#stationTitle { color: #12392b; font-size: 27px; font-weight: 700; }
+QLabel#stationSubtitle, QLabel#labelLastPacket { color: #476654; }
+QGroupBox {
+    background: #f8fcf6;
+    border: 1px solid #c4ddbf;
+    border-radius: 22px;
+    margin-top: 14px;
+    padding: 10px 9px 8px;
+    font-weight: 700;
+}
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    left: 16px;
+    padding: 0 6px;
+    color: #275341;
+}
+QLabel#labelLatitude, QLabel#labelLongitude, QLabel#labelAltitude, QLabel#labelFlightMode {
+    font-family: "Cascadia Mono", "Consolas";
+    font-weight: 700;
+    color: #1e5940;
+}
+QLabel#labelAltitude { font-size: 23px; }
+QLabel#labelLinkStatus {
+    background: #f6e2e0;
+    color: #932d2d;
+    border-radius: 13px;
+    padding: 5px 10px;
+    font-weight: 700;
+}
+QLabel#labelLinkStatus[state="live"] { background: #d9efd4; color: #215b3b; }
+QLabel#labelLinkStatus[state="waiting"] { background: #f8efcf; color: #745511; }
+QLabel#labelCommandStatus, QLabel#labelHealth, QLabel#labelPacketIssue { font-weight: 650; color: #41624d; }
+QLabel#labelCommandStatus[state="live"], QLabel#labelHealth[state="live"] { color: #21603b; }
+QLabel#labelCommandStatus[state="waiting"] { color: #745511; }
+QLabel#labelCommandStatus[state="alert"], QLabel#labelHealth[state="alert"], QLabel#labelPacketIssue[state="alert"] { color: #932d2d; }
+QPushButton, QAbstractSpinBox {
+    background: #ffffff;
+    border: 1px solid #b7d2b5;
+    border-radius: 15px;
+    padding: 5px 11px;
+    min-height: 18px;
+}
+QPushButton { font-weight: 600; }
+QPushButton#btnSound { padding-left: 17px; padding-right: 17px; }
+QPushButton#btnSound:checked { background: #d3eccf; border-color: #b3d7af; }
+QAbstractSpinBox {
+    padding-right: 30px;
+}
+QAbstractSpinBox::up-button, QAbstractSpinBox::down-button {
+    subcontrol-origin: padding;
+    width: 25px;
+    height: 14px;
+    border: 0;
+    background: transparent;
+}
+QAbstractSpinBox::up-button { subcontrol-position: top right; margin-top: 1px; }
+QAbstractSpinBox::down-button { subcontrol-position: bottom right; margin-bottom: 1px; }
+QAbstractSpinBox::up-arrow { image: url(:/station/spin-up.png); width: 14px; height: 14px; }
+QAbstractSpinBox::down-arrow { image: url(:/station/spin-down.png); width: 14px; height: 14px; }
+QAbstractSpinBox:disabled { background: #e6efe4; color: #58705e; }
+QPushButton:hover { background: #e0f2dc; border-color: #79ad84; }
+QPushButton:pressed, QPushButton:checked { background: #cce9c9; }
+QPushButton:focus, QAbstractSpinBox:focus { border: 1px solid #228050; }
+QPushButton#btnStartLink, QPushButton#btnStartUav, QPushButton#btnTakeoff {
+    color: #ffffff;
+    background: #26734c;
+    border-color: #26734c;
+}
+QPushButton#btnStartLink:hover, QPushButton#btnStartUav:hover, QPushButton#btnTakeoff:hover {
+    background: #1b5d3b;
+}
+QPushButton#btnStartLink:focus, QPushButton#btnStartUav:focus, QPushButton#btnTakeoff:focus {
+    border: 2px solid #134f34;
+}
+QPushButton:disabled, QPushButton#btnStartLink:disabled, QPushButton#btnStartUav:disabled, QPushButton#btnTakeoff:disabled {
+    color: #58705e;
+    background: #e6efe4;
+    border-color: #ccdfca;
+}
+QTabWidget::pane {
+    background: #f8fcf6;
+    border: 1px solid #c4ddbf;
+    border-radius: 20px;
+    top: 4px;
+}
+QTabWidget::tab-bar { left: 8px; }
+QTabBar::tab {
+    background: #e0efdd;
+    border: 1px solid #c1dabd;
+    color: #345743;
+    border-radius: 14px;
+    padding: 6px 13px;
+    margin-right: 5px;
+    font-weight: 600;
+}
+QTabBar::tab:hover { background: #d3e9ce; }
+QTabBar::tab:selected { background: #26734c; color: white; border-color: #26734c; }
+QTabBar::tab:focus { border-color: #134f34; }
+QListWidget, QTableWidget {
+    background: #ffffff;
+    alternate-background-color: #eef7ec;
+    border: 1px solid #d4e6d0;
+    border-radius: 13px;
+    gridline-color: #e2eddf;
+    selection-background-color: #cae7c5;
+    selection-color: #17362a;
+    font-weight: 400;
+}
+QListWidget::item { padding: 4px 6px; }
+QHeaderView::section {
+    background: #e2f0df;
+    color: #234b34;
+    border: 0;
+    border-right: 1px solid #ccdfc8;
+    padding: 5px 3px;
+    font-weight: 600;
+}
