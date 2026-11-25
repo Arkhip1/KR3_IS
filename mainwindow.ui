@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1240</width>
+    <height>820</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>НСУ БПЛА — MAVLink Ground Station</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="mainVerticalLayout" stretch="0,1">
+    <property name="spacing">
+     <number>12</number>
+    </property>
+    <property name="leftMargin">
+     <number>16</number>
+    </property>
+    <property name="rightMargin">
+     <number>16</number>
+    </property>
+    <property name="topMargin">
+     <number>14</number>
+    </property>
+    <property name="bottomMargin">
+     <number>14</number>
+    </property>
+    <item>
+     <widget class="QFrame" name="stationHeader">
+      <layout class="QHBoxLayout" name="headerRow">
+       <property name="leftMargin">
+        <number>17</number>
+       </property>
+       <property name="rightMargin">
+        <number>14</number>
+       </property>
+       <property name="topMargin">
+        <number>9</number>
+       </property>
+       <property name="bottomMargin">
+        <number>9</number>
+       </property>
+       <item>
+        <layout class="QVBoxLayout" name="headerCopy">
+         <property name="spacing">
+          <number>2</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="stationTitle">
+           <property name="text">
+            <string>Наземная станция</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="stationSubtitle">
+           <property name="text">
+            <string>Учебный стенд MAVLink 2  ·  UDP  ·  Вариант 3</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="headerSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnSound">
+         <property name="text">
+          <string>Звук включён</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+         <property name="toolTip">
+          <string>Включить или выключить звуки событий</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="bodyLayout" stretch="0,1">
+      <property name="spacing">
+       <number>14</number>
+      </property>
+      <item>
+       <widget class="QWidget" name="controlPanel">
+        <property name="minimumSize">
+         <size>
+          <width>326</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>378</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <layout class="QVBoxLayout" name="controlPanelLayout" stretch="0,0,0,1">
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="spacing">
+          <number>7</number>
+         </property>
+         <item>
+          <widget class="QGroupBox" name="groupBoxLink">
+           <property name="title">
+            <string>Подключение UDP</string>
+           </property>
+           <layout class="QGridLayout" name="gridLink" columnstretch="1,1">
+            <property name="verticalSpacing">
+             <number>6</number>
+            </property>
+            <property name="horizontalSpacing">
+             <number>8</number>
+            </property>
+            <item row="0" column="0">
+             <widget class="QLabel" name="lblPortCaption">
+              <property name="text">
+               <string>UDP-порт НСУ:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QSpinBox" name="spinListenPort">
+              <property name="minimum">
+               <number>1024</number>
+              </property>
+              <property name="maximum">
+               <number>65535</number>
+              </property>
+              <property name="value">
+               <number>14540</number>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QPushButton" name="btnStartLink">
+              <property name="text">
+               <string>Открыть UDP-порт</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QPushButton" name="btnStopLink">
+              <property name="text">
+               <string>Закрыть UDP-порт</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBoxCommands">
+           <property name="title">
+            <string>Команды полёта</string>
+           </property>
+           <layout class="QGridLayout" name="gridCommands" columnstretch="1,1">
+            <property name="verticalSpacing">
+             <number>6</number>
+            </property>
+            <property name="horizontalSpacing">
+             <number>8</number>
+            </property>
+            <item row="0" column="0">
+             <widget class="QLabel" name="lblTakeoffAlt">
+              <property name="text">
+               <string>Высота взлёта:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QDoubleSpinBox" name="spinTakeoffAltitude" />
+            </item>
+            <item row="1" column="0" colspan="2">
+             <widget class="QPushButton" name="btnTakeoff">
+              <property name="text">
+               <string>Взлёт</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QPushButton" name="btnLand">
+              <property name="text">
+               <string>Посадка</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QPushButton" name="btnStop">
+              <property name="text">
+               <string>Стоп</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0" colspan="2">
+             <widget class="QLabel" name="labelCommandStatus">
+              <property name="text">
+               <string>Ожидание команды</string>
+              </property>
+              <property name="wordWrap">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBoxSimulator">
+           <property name="title">
+            <string>Эмулятор БПЛА</string>
+           </property>
+           <layout class="QGridLayout" name="gridSimulator" columnstretch="1,1">
+            <property name="verticalSpacing">
+             <number>6</number>
+            </property>
+            <property name="horizontalSpacing">
+             <number>8</number>
+            </property>
+            <item row="0" column="0">
+             <widget class="QPushButton" name="btnStartUav">
+              <property name="text">
+               <string>Запустить БПЛА</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QPushButton" name="btnDisconnectUav">
+              <property name="text">
+               <string>Отключить БПЛА</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QPushButton" name="btnCorruptPacket">
+              <property name="text">
+               <string>Повредить пакет</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QPushButton" name="btnDropPackets">
+              <property name="text">
+               <string>Пропустить 2 пакета</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QPushButton" name="btnOmitAck">
+              <property name="text">
+               <string>Пропустить ACK</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QPushButton" name="btnSensorFault">
+              <property name="text">
+               <string>Сбой датчика</string>
+              </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <spacer name="controlPanelSpacer">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="monitorLayout" stretch="0,3,2">
+        <property name="spacing">
+         <number>10</number>
+        </property>
+        <item>
+         <layout class="QHBoxLayout" name="summaryLayout" stretch="1,1">
+          <property name="spacing">
+           <number>10</number>
+          </property>
+          <item>
+           <widget class="QGroupBox" name="groupBoxConnectionStatus">
+            <property name="title">
+             <string>Состояние канала</string>
+            </property>
+            <layout class="QGridLayout" name="connectionStatusLayout" columnstretch="0,1">
+             <property name="verticalSpacing">
+              <number>6</number>
+             </property>
+             <property name="horizontalSpacing">
+              <number>8</number>
+             </property>
+             <property name="spacing">
+              <number>5</number>
+             </property>
+             <item row="0" column="0" colspan="2">
+              <widget class="QLabel" name="labelLinkStatus">
+               <property name="text">
+                <string>Связь отсутствует</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="lblSenderCaption">
+               <property name="text">
+                <string>Отправитель:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLabel" name="labelSender">
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignVCenter</set>
+               </property>
+               <property name="text">
+                <string>—</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0" colspan="2">
+              <widget class="QLabel" name="labelPackets">
+               <property name="text">
+                <string>Принято: 0   ·   Пропуски: 0   ·   Ошибки: 0</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="0">
+              <widget class="QLabel" name="labelLastPacket">
+               <property name="text">
+                <string>Последний пакет: —</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <widget class="QLabel" name="labelPacketIssue">
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignVCenter</set>
+               </property>
+               <property name="text">
+                <string />
+               </property>
+               <property name="wordWrap">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="groupBoxTelemetry">
+            <property name="title">
+             <string>Телеметрия БПЛА</string>
+            </property>
+            <layout class="QGridLayout" name="formTelemetry" columnstretch="0,1,0,1">
+             <property name="verticalSpacing">
+              <number>6</number>
+             </property>
+             <property name="horizontalSpacing">
+              <number>8</number>
+             </property>
+             <item row="0" column="0">
+              <widget class="QLabel" name="lblLat">
+               <property name="text">
+                <string>Широта:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLabel" name="labelLatitude">
+               <property name="text">
+                <string>—</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="lblLon">
+               <property name="text">
+                <string>Долгота:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLabel" name="labelLongitude">
+               <property name="text">
+                <string>—</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="2">
+              <widget class="QLabel" name="lblAlt">
+               <property name="text">
+                <string>От старта:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="3">
+              <widget class="QLabel" name="labelAltitude">
+               <property name="text">
+                <string>—</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="2">
+              <widget class="QLabel" name="lblMode">
+               <property name="text">
+                <string>Режим полёта:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="3">
+              <widget class="QLabel" name="labelFlightMode">
+               <property name="text">
+                <string>—</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0" colspan="4">
+              <widget class="QLabel" name="labelHealth">
+               <property name="text">
+                <string>Борт: —</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QChartView" name="chartView">
+          <property name="frameShape">
+           <enum>QFrame::NoFrame</enum>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>320</width>
+            <height>188</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTabWidget" name="monitorTabs">
+          <property name="usesScrollButtons">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="telemetryTab">
+           <attribute name="title">
+            <string>История телеметрии</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="telemetryTabLayout">
+            <property name="bottomMargin">
+             <number>6</number>
+            </property>
+            <property name="topMargin">
+             <number>6</number>
+            </property>
+            <property name="rightMargin">
+             <number>6</number>
+            </property>
+            <property name="leftMargin">
+             <number>6</number>
+            </property>
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QTableWidget" name="tableTelemetry">
+              <property name="alternatingRowColors">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="networkTab">
+           <attribute name="title">
+            <string>Сетевые события</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="networkTabLayout">
+            <property name="bottomMargin">
+             <number>6</number>
+            </property>
+            <property name="topMargin">
+             <number>6</number>
+            </property>
+            <property name="rightMargin">
+             <number>6</number>
+            </property>
+            <property name="leftMargin">
+             <number>6</number>
+            </property>
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QListWidget" name="listNetworkLog">
+              <property name="alternatingRowColors">
+               <bool>true</bool>
+              </property>
+              <property name="wordWrap">
+               <bool>true</bool>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>64</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="commandsTab">
+           <attribute name="title">
+            <string>Журнал команд</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="commandsTabLayout">
+            <property name="bottomMargin">
+             <number>6</number>
+            </property>
+            <property name="topMargin">
+             <number>6</number>
+            </property>
+            <property name="rightMargin">
+             <number>6</number>
+            </property>
+            <property name="leftMargin">
+             <number>6</number>
+            </property>
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QListWidget" name="listCommandLog">
+              <property name="alternatingRowColors">
+               <bool>true</bool>
+              </property>
+              <property name="wordWrap">
+               <bool>true</bool>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>64</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QChartView</class>
+   <extends>QGraphicsView</extends>
+   <header>QtCharts/QChartView</header>
+  </customwidget>
+ </customwidgets>
+ <resources />
+ <connections />
+</ui>

@@ -1,0 +1,11 @@
+<RCC>
+  <qresource prefix="/station">
+    <file alias="station.qss">assets/station.qss</file>
+    <file alias="spin-up.png">assets/spin-up.png</file>
+    <file alias="spin-down.png">assets/spin-down.png</file>
+    <file alias="connected.wav">assets/connected.wav</file>
+    <file alias="accepted.wav">assets/accepted.wav</file>
+    <file alias="lost.wav">assets/lost.wav</file>
+    <file alias="fault.wav">assets/fault.wav</file>
+  </qresource>
+</RCC>
